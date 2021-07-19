@@ -129,7 +129,7 @@ extern "C" void GDMCHexDump ( const unsigned char *data, int size )
     if (size>8)
       szHexLine[34] = '-';
 
-    snprintf(szHex, 8 + 1, "%08X",(unsigned int)data);
+    sprintf(szHex,"%08X",(unsigned int)data);
     memcpy(szHexLine,szHex,8);
 
     i=0;j=0;
@@ -163,7 +163,7 @@ extern "C" void GDMCHexDump ( const unsigned char *data, int size )
 
 #endif // ARM
 
-gderror GDMCComposeErrorMessage ( gdmcinst *inst, gderror error, _u8 *msgout, _u32 *msgout_size, _u32 initial_msgout_size, const char *pszmsg, ... )
+gderror GDMCComposeErrorMessage ( gdmcinst *inst __unused, gderror error, _u8 *msgout, _u32 *msgout_size, _u32 initial_msgout_size, const char *pszmsg, ... )
 {
   _u32              msgsize = 0;
   gdmc_msgheader   *header;
